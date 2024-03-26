@@ -20,6 +20,14 @@ public class Lab1part2 {
         for(Person st : person){
             System.out.println(st.toString());
         }
+        EduBooksFactory fact = new EduBooksFactory();
+        for(int i = 0; i<5; i++){
+            EduEnglishBooks eduEng = (EduEnglishBooks) fact.createEduBooks("Eng");
+            System.out.println("Название "+ eduEng.getName() +" Автор "+  eduEng.getAuthor() + " Курс "+ eduEng.getCourse()+" Уровень "+  eduEng.getLevel()+ " Универ "+ eduEng.getUnivers());
+            EduRusBooks eduRus = (EduRusBooks) fact.createEduBooks("Rus");
+            System.out.println( "Название "+eduRus.getName()+ " Тип "+ eduRus.getType() + " Курс "+ eduRus.getCourse());
+        }
+ 
     }
 
 }

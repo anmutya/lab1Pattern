@@ -1,6 +1,5 @@
 package com.mycompany.lab1part2;
 
-import com.mycompany.lab1part2.FileLoader;
 import java.util.ArrayList;
 import java.util.Random;
 
