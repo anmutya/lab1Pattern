@@ -7,7 +7,6 @@ package com.mycompany.lab1part2;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +21,10 @@ public class BooksGenerate {
     static String engCoursePath = "res/EngCourses.csv";
     static String namesEnglEduBooksPath = "res/EngEduNames.csv";
     static String namesRusEduBooksPath = "res/namesRusEduBooks.csv";
+    static String engGenresPath = "res/EngGenres.csv";
+    static String RusGenresPath = "res/RusGenres.csv";
+    static String namesEngFictionBooksPath = "res/NamesEngFictionBooks.csv";
+    static String namesRusFictionBooksPath = "res/NamesRusFictionBooks.csv";
     private List<String> eduEngAuthors = Arrays.asList("John Dewey",
             "Paulo Freire",
             "Howard Gardner",
@@ -46,25 +49,45 @@ public class BooksGenerate {
             "University College London (UCL)",
             "University of Manchester");
     private List<String> type = Arrays.asList("Учебник", "Пособие", "Задачник", "Практикум", "Лабораторный практикум");
+    public String generateNameForFictionBooks(Language lang){
+        Random rd = new Random();
+        String name;
+        if(lang.equals(Language.ENGLISH)){
+           name = loadFile(namesEngFictionBooksPath).get(rd.nextInt(loadFile(namesEngFictionBooksPath).size()));
+        }
+        else{
+            name = loadFile(namesRusFictionBooksPath).get(rd.nextInt(loadFile(namesRusFictionBooksPath).size()));
+        }return name;
+    }
+    public String generateGenre(Language language){
+        Random rd = new Random();
+        String genre;
+        if(language.equals(Language.ENGLISH)){
+           genre = loadFile(engGenresPath).get(rd.nextInt(loadFile(engGenresPath).size()));
+        }
+        else{
+            genre = loadFile(RusGenresPath).get(rd.nextInt(loadFile(RusGenresPath).size()));
+        }return genre;
+    }
     
-    public String generateAuthor(String lang){
+    public String generateAuthor(){
         Random rd = new Random();
         return this.eduEngAuthors.get(rd.nextInt(this.eduEngAuthors.size()));
     }
-    public String generateName(String lang){
+    public String generateName(Language lang){
         Random rd = new Random();
         String name;
-        if(lang.equals("Eng")){
+        if(lang.equals(Language.ENGLISH)){
            name = loadFile(namesEnglEduBooksPath).get(rd.nextInt(loadFile(namesEnglEduBooksPath).size()));
         }
         else{
             name = loadFile(namesRusEduBooksPath).get(rd.nextInt(loadFile(namesRusEduBooksPath).size()));
         }return name;
     }
-    public String generateCourse(String lang){
+    public String generateCourse(Language lang){
         Random rd = new Random();
         String course;
-        if(lang.equals("Eng")){
+        if(lang.equals(Language.ENGLISH)){
            course = loadFile(engCoursePath).get(rd.nextInt(loadFile(engCoursePath).size()));
         }
         else{

@@ -11,18 +11,20 @@ package com.mycompany.lab1part2;
 public class EduBooksFactory implements BooksFactory {
     BooksGenerate gen = new BooksGenerate();
     @Override
-    public EduBooks createEduBooks(String language) {
-        if(language.equals("Eng")){
-            return new EduEnglishBooks(gen.generateName(language), gen.generateUniversuty(), gen.generateAuthor(language), gen.generateLevel(), gen.generateCourse(language));
+    public EduBooks createEduBooks(Language language) {
+        if(language.equals(Language.ENGLISH)){
+            return new EduEnglishBooks(gen.generateName(language), gen.generateUniversuty(), gen.generateAuthor(), gen.generateLevel(), gen.generateCourse(language));
         }
-        else{
+        else if(language.equals(Language.RUSSIAN)){
             return new EduRusBooks(gen.generateName(language), gen.generateCourse(language), gen.generateType());
         }
+        return null;
     }
 
+
     @Override
-    public FictionBooks createFicBooks(String language) {
-       return null;
+    public FictionBooks createFicBooks(String name, String genre, Language language) {
+        return null;
     }
 
 }

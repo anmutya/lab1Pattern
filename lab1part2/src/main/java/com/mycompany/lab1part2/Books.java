@@ -8,16 +8,18 @@ package com.mycompany.lab1part2;
  *
  * @author annamutovkina
  */
-public abstract class EduBooks extends Books {
-    protected String course;
-    public void setCourse(String course){
-        this.course = course;
+public abstract class Books {
+    protected Language language;
+
+    protected String name;
+    protected Language getLanguage(){
+        return language;
     }
-    public String getCourse(){
-        return this.course;
+    public String getName(){
+        return this.name;
     }
-    @Override
     public String getInfo(){
-        return this.name + " " + this.course;
-    }
+        return this.name;
+    } 
 }
+

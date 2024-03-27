@@ -20,9 +20,6 @@ public class Teacher extends Person{
 
     @Override
     public String toString() {
-        return "firstName=" + this.firstName + "; "
-                + "lastName=" + this.lastName + "; "
-                + "middleName=" + this.middleName + "; "
-                + "sex=" + this.sex;
+        return this.firstName + " " +  this.middleName + " " + this.lastName ;
     }
 }

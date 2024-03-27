@@ -30,4 +30,8 @@ public class EduEnglishBooks extends EduBooks{
     public String getLevel(){
         return this.level;
     }
+    @Override
+    public String getInfo(){
+        return "Название: " + this.name +  " Автор:  " + this.author+ " Курс: "+ this.course + " Уровень: "+ this.level + " Университет: " + this.university;
+    }
 }

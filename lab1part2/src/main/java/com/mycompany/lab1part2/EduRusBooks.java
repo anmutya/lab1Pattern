@@ -19,4 +19,8 @@ public class EduRusBooks extends EduBooks{
     public String getType(){
         return this.type;
     }
+    @Override
+    public String getInfo(){
+        return this.name + " Тип: " + this.type + " Курс: " + this.course ;
+    }
 }

@@ -8,7 +8,8 @@ package com.mycompany.lab1part2;
  *
  * @author annamutovkina
  */
-public interface BooksFactory {
-    EduBooks createEduBooks(Language language);
-    FictionBooks createFicBooks(String name, String genre, Language language);
+public interface FictionBookBuilder {
+    void setName();
+    void setGenre();
+    FictionBooks getResult();
 }
