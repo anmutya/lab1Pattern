@@ -6,7 +6,9 @@ package com.mycompany.lab1part2;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
@@ -29,6 +31,7 @@ public class GuiTree extends JFrame {
         rand = new Random();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        this.setSize(800, 600); 
         this.setLayout(new BorderLayout());
         this.rootTree = new DefaultMutableTreeNode("Пользователи");
         this.tree = new JTree(rootTree);
@@ -54,15 +57,21 @@ public class GuiTree extends JFrame {
             initBookNodes(varNode, books);
         }
     }
-
     private void initBookNodes(DefaultMutableTreeNode parent, ArrayList<Books> books) {
         ArrayList<Books> copy = new ArrayList<>(books);
         Collections.shuffle(copy);
         DefaultMutableTreeNode varNode;
-
-        for (Books b : copy.subList(0, rand.nextInt(3, 10))) {
-            varNode = new DefaultMutableTreeNode(b.getInfo());
-            parent.add(varNode);
+        
+        Set<String> uniqueBookNames = new HashSet<>();
+        int count = rand.nextInt(3, 10);
+        for (Books b : copy) {
+            if (uniqueBookNames.size() >= count) {
+                break; 
+            }
+            if (uniqueBookNames.add(b.getName())) {
+                varNode = new DefaultMutableTreeNode(b.getInfo());
+                parent.add(varNode);
+            }
         }
     }
 
