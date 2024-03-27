@@ -2,14 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.lab1part2;
+package Books;
+
 
 /**
  *
  * @author annamutovkina
  */
 public class EduBooksFactory implements BooksFactory {
-    BooksGenerate gen = new BooksGenerate();
+    private BooksGenerate gen = new BooksGenerate();
     @Override
     public EduBooks createEduBooks(Language language) {
         if(language.equals(Language.ENGLISH)){

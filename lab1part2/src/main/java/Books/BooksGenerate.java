@@ -2,12 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.lab1part2;
+package Books;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import Person.FileLoader;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -17,14 +14,14 @@ import java.util.Random;
  * @author annamutovkina
  */
 public class BooksGenerate {
-    static String rusCoursePath = "res/RusCourse.csv";
-    static String engCoursePath = "res/EngCourses.csv";
-    static String namesEnglEduBooksPath = "res/EngEduNames.csv";
-    static String namesRusEduBooksPath = "res/namesRusEduBooks.csv";
-    static String engGenresPath = "res/EngGenres.csv";
-    static String RusGenresPath = "res/RusGenres.csv";
-    static String namesEngFictionBooksPath = "res/NamesEngFictionBooks.csv";
-    static String namesRusFictionBooksPath = "res/NamesRusFictionBooks.csv";
+    private static String rusCoursePath = "res/RusCourse.csv";
+    private static String engCoursePath = "res/EngCourses.csv";
+    private static String namesEnglEduBooksPath = "res/EngEduNames.csv";
+    private static String namesRusEduBooksPath = "res/namesRusEduBooks.csv";
+    private static String engGenresPath = "res/EngGenres.csv";
+    private static String RusGenresPath = "res/RusGenres.csv";
+    private static String namesEngFictionBooksPath = "res/NamesEngFictionBooks.csv";
+    private static String namesRusFictionBooksPath = "res/NamesRusFictionBooks.csv";
     private List<String> eduEngAuthors = Arrays.asList("John Dewey",
             "Paulo Freire",
             "Howard Gardner",
@@ -53,20 +50,20 @@ public class BooksGenerate {
         Random rd = new Random();
         String name;
         if(lang.equals(Language.ENGLISH)){
-           name = loadFile(namesEngFictionBooksPath).get(rd.nextInt(loadFile(namesEngFictionBooksPath).size()));
+           name = FileLoader.loadFileToList(namesEngFictionBooksPath).get(rd.nextInt(FileLoader.loadFileToList(namesEngFictionBooksPath).size()));
         }
         else{
-            name = loadFile(namesRusFictionBooksPath).get(rd.nextInt(loadFile(namesRusFictionBooksPath).size()));
+            name = FileLoader.loadFileToList(namesRusFictionBooksPath).get(rd.nextInt(FileLoader.loadFileToList(namesRusFictionBooksPath).size()));
         }return name;
     }
     public String generateGenre(Language language){
         Random rd = new Random();
         String genre;
         if(language.equals(Language.ENGLISH)){
-           genre = loadFile(engGenresPath).get(rd.nextInt(loadFile(engGenresPath).size()));
+           genre = FileLoader.loadFileToList(engGenresPath).get(rd.nextInt(FileLoader.loadFileToList(engGenresPath).size()));
         }
         else{
-            genre = loadFile(RusGenresPath).get(rd.nextInt(loadFile(RusGenresPath).size()));
+            genre = FileLoader.loadFileToList(RusGenresPath).get(rd.nextInt(FileLoader.loadFileToList(RusGenresPath).size()));
         }return genre;
     }
     
@@ -78,20 +75,20 @@ public class BooksGenerate {
         Random rd = new Random();
         String name;
         if(lang.equals(Language.ENGLISH)){
-           name = loadFile(namesEnglEduBooksPath).get(rd.nextInt(loadFile(namesEnglEduBooksPath).size()));
+           name = FileLoader.loadFileToList(namesEnglEduBooksPath).get(rd.nextInt(FileLoader.loadFileToList(namesEnglEduBooksPath).size()));
         }
         else{
-            name = loadFile(namesRusEduBooksPath).get(rd.nextInt(loadFile(namesRusEduBooksPath).size()));
+            name = FileLoader.loadFileToList(namesRusEduBooksPath).get(rd.nextInt(FileLoader.loadFileToList(namesRusEduBooksPath).size()));
         }return name;
     }
     public String generateCourse(Language lang){
         Random rd = new Random();
         String course;
         if(lang.equals(Language.ENGLISH)){
-           course = loadFile(engCoursePath).get(rd.nextInt(loadFile(engCoursePath).size()));
+           course = FileLoader.loadFileToList(engCoursePath).get(rd.nextInt(FileLoader.loadFileToList(engCoursePath).size()));
         }
         else{
-            course = loadFile(rusCoursePath).get(rd.nextInt(loadFile(rusCoursePath).size()));
+            course = FileLoader.loadFileToList(rusCoursePath).get(rd.nextInt(FileLoader.loadFileToList(rusCoursePath).size()));
         }return course;
     }
     public String generateUniversuty(){
@@ -109,23 +106,7 @@ public class BooksGenerate {
         return this.type.get(rd.nextInt(this.type.size()));
     }
 
-     public  List<String> loadFile(String path){
-        String line = "";
-        String cvsSplitBy = ","; 
-        List<String> dataList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(cvsSplitBy);
-                for (String item : data) {
-                    dataList.add(item);
-                }
-            }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return dataList;
-    }
     
             
  }

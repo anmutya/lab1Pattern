@@ -1,4 +1,4 @@
-package com.mycompany.lab1part2;
+package Person;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

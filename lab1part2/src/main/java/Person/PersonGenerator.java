@@ -1,4 +1,4 @@
-package com.mycompany.lab1part2;
+package Person;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -13,10 +13,10 @@ import java.util.Random;
  */
 public class PersonGenerator {
 
-    static String namesPath = "res/NamesForLab.csv";
-    static String lastNamesForStudentPath = "res/LastNameForLab.csv";
-    static String lastNamesForTeachersPath = "res/LastNameForTeach.csv";
-    static String middleNamesPath = "res/MiddleNameForLab.csv";
+    private static String namesPath = "res/NamesForLab.csv";
+    private static String lastNamesForStudentPath = "res/LastNameForLab.csv";
+    private static String lastNamesForTeachersPath = "res/LastNameForTeach.csv";
+    private static String middleNamesPath = "res/MiddleNameForLab.csv";
 
     private final ArrayList<String> maleNames = new ArrayList();
     private final ArrayList<String> femaleNames = new ArrayList();

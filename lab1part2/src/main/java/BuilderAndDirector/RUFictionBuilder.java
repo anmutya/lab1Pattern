@@ -2,28 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.lab1part2;
+package BuilderAndDirector;
+
+import Books.FictionBookFactory;
+import Books.Language;
+import Books.FictionBooks;
+import Books.BooksGenerate;
 
 /**
  *
  * @author annamutovkina
  */
-public class ENGFictionBuilder implements FictionBookBuilder{
-    private Language language = Language.ENGLISH;
+public class RUFictionBuilder implements FictionBookBuilder{
+    private Language language = Language.RUSSIAN;
     private String name;
     private String genre;
     private BooksGenerate gen = new BooksGenerate();
     
-    /**
-     *
-     */
+    
     @Override
-    public void setName() {
+    public void buildName() {
        this.name = gen.generateNameForFictionBooks(this.language);
     }
 
     @Override
-    public void setGenre() {
+    public void buildGenre() {
         this.genre = gen.generateGenre(this.language);
     }
 
@@ -31,5 +34,4 @@ public class ENGFictionBuilder implements FictionBookBuilder{
     public FictionBooks getResult() {
         return new FictionBookFactory().createFicBooks(this.name, this.genre, this.language);
     }
-    
 }

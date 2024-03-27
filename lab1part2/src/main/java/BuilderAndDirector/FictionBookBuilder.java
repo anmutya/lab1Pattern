@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.mycompany.lab1part2;
+package BuilderAndDirector;
+
+import Books.FictionBooks;
 
 /**
  *
  * @author annamutovkina
  */
 public interface FictionBookBuilder {
-    void setName();
-    void setGenre();
+    void buildName();
+    void buildGenre();
     FictionBooks getResult();
 }

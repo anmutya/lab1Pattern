@@ -1,11 +1,22 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-package com.mycompany.lab1part2;
 
+
+import Gui.GuiTree;
+import BuilderAndDirector.FictionBookDirector;
+import BuilderAndDirector.RUFictionBuilder;
+import BuilderAndDirector.ENGFictionBuilder;
+import Books.EduBooksFactory;
+import Books.Language;
+import Books.FictionBooks;
+import Books.EduRusBooks;
+import Books.EduEnglishBooks;
+import Books.Books;
+import Person.Person;
+import Person.PersonGenerator;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 /**
  *
@@ -28,7 +39,7 @@ public class Lab1part2 {
             EduRusBooks eduRus = (EduRusBooks) fact.createEduBooks(Language.RUSSIAN);
             booksList.add(eduRus);
             director.constructArtisticBook();
-            FictionBooks book = director.builder.getResult();
+            FictionBooks book = director.getBuilder().getResult();
             booksList.add(book);
             
         }
@@ -36,7 +47,7 @@ public class Lab1part2 {
             EduEnglishBooks eduEng = (EduEnglishBooks) fact.createEduBooks(Language.ENGLISH);
             booksList.add(eduEng);
             director2.constructArtisticBook();
-            FictionBooks book2 = director2.builder.getResult();
+            FictionBooks book2 = director2.getBuilder().getResult();
             booksList.add(book2);
         }
         return booksList;
