@@ -4,34 +4,18 @@
  */
 package BuilderAndDirector;
 
-import Books.FictionBookFactory;
 import Books.Language;
-import Books.FictionBooks;
-import Books.BooksGenerate;
+
+
 
 /**
  *
  * @author annamutovkina
  */
-public class RUFictionBuilder implements FictionBookBuilder{
-    private Language language = Language.RUSSIAN;
-    private String name;
-    private String genre;
-    private BooksGenerate gen = new BooksGenerate();
+public class RUFictionBuilder extends FictionBookBuilderFix{
     
-    
-    @Override
-    public void buildName() {
-       this.name = gen.generateNameForFictionBooks(this.language);
+  public RUFictionBuilder() {
+        this.language = Language.RUSSIAN;
     }
-
-    @Override
-    public void buildGenre() {
-        this.genre = gen.generateGenre(this.language);
-    }
-
-    @Override
-    public FictionBooks getResult() {
-        return new FictionBookFactory().createFicBooks(this.name, this.genre, this.language);
-    }
+   
 }

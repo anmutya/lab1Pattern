@@ -18,14 +18,14 @@ public class PersonGenerator {
     private static String lastNamesForTeachersPath = "res/LastNameForTeach.csv";
     private static String middleNamesPath = "res/MiddleNameForLab.csv";
 
-    private final ArrayList<String> maleNames = new ArrayList();
-    private final ArrayList<String> femaleNames = new ArrayList();
-    private final ArrayList<String> maleMiddleNames = new ArrayList();
-    private final ArrayList<String> femaleMiddleNames = new ArrayList();
-    private final ArrayList<String> femaleLastNamesTeachers = new ArrayList();
-    private final ArrayList<String> femaleLastNamesStudents = new ArrayList();
-    private final ArrayList<String> maleLastNamesTeachers = new ArrayList();
-    private final ArrayList<String> maleLastNamesStudents = new ArrayList();
+    private ArrayList<String> maleNames = new ArrayList();
+    private ArrayList<String> femaleNames = new ArrayList();
+    private ArrayList<String> maleMiddleNames = new ArrayList();
+    private ArrayList<String> femaleMiddleNames = new ArrayList();
+    private ArrayList<String> femaleLastNamesTeachers = new ArrayList();
+    private ArrayList<String> femaleLastNamesStudents = new ArrayList();
+    private ArrayList<String> maleLastNamesTeachers = new ArrayList();
+    private ArrayList<String> maleLastNamesStudents = new ArrayList();
 
     public PersonGenerator() {
         parseNames();
@@ -50,7 +50,7 @@ public class PersonGenerator {
         parseNamesHelper(lastNamesForTeachersPath, maleLastNamesTeachers, femaleLastNamesTeachers);
     }
 
-    private void parseNamesHelper(String path, ArrayList maleArray, ArrayList femaleArray) {
+    private static void parseNamesHelper(String path, ArrayList maleArray, ArrayList femaleArray) {
         var namesList = FileLoader.loadFile(path);
         for (ArrayList pair : namesList) {
             String name = (String) pair.get(0);
