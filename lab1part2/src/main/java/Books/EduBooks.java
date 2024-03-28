@@ -9,15 +9,22 @@ package Books;
  *
  * @author annamutovkina
  */
-public abstract class EduBooks extends Books {
+public abstract class EduBooks {
     protected String course;
+    protected Language language;
+    protected String name;
+    protected Language getLanguage(){
+        return language;
+    }
+    public String getName(){
+        return this.name;
+    }
     public void setCourse(String course){
         this.course = course;
     }
     public String getCourse(){
         return this.course;
     }
-    @Override
     public String getInfo(){
         return this.name + " " + this.course;
     }

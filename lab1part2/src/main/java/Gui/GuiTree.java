@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Gui;
-import Books.Books;
+import Books.EduBooks;
+import Books.FictionBooks;
 import Person.Person;
 import Person.Teacher;
 import java.awt.BorderLayout;
@@ -29,7 +30,7 @@ public class GuiTree extends JFrame {
     private JScrollPane scroll;
     private Random rand;
 
-    public GuiTree(String name, ArrayList<Person> people, ArrayList<Books> books) {
+    public GuiTree(String name, ArrayList<Person> people, ArrayList books) {
         super(name);
         rand = new Random();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,7 +48,7 @@ public class GuiTree extends JFrame {
         this.add(scroll);
     }
     
-    private void initHumanNodes(ArrayList<Person> people,ArrayList<Books> books) {
+    private void initHumanNodes(ArrayList<Person> people,ArrayList books) {
         DefaultMutableTreeNode varNode;
 
         for (Person p : people) {
@@ -60,21 +61,30 @@ public class GuiTree extends JFrame {
             initBookNodes(varNode, books);
         }
     }
-    private void initBookNodes(DefaultMutableTreeNode parent, ArrayList<Books> books) {
-        ArrayList<Books> copy = new ArrayList<>(books);
+    private void initBookNodes(DefaultMutableTreeNode parent, ArrayList books) {
+        ArrayList copy = new ArrayList<>(books);
         Collections.shuffle(copy);
         DefaultMutableTreeNode varNode;
         
         Set<String> uniqueBookNames = new HashSet<>();
         int count = rand.nextInt(3, 10);
-        for (Books b : copy) {
+        for (Object b : copy) {
             if (uniqueBookNames.size() >= count) {
-                break; 
+                break;
             }
-            if (uniqueBookNames.add(b.getName())) {
-                varNode = new DefaultMutableTreeNode(b.getInfo());
-                parent.add(varNode);
+            if (b instanceof FictionBooks) {
+                if (uniqueBookNames.add(((FictionBooks) b).getName())) {
+                    varNode = new DefaultMutableTreeNode(((FictionBooks) b).getInfo());
+                    parent.add(varNode);
+                }
             }
+            if (b instanceof EduBooks) {
+                if (uniqueBookNames.add(((EduBooks) b).getName())) {
+                    varNode = new DefaultMutableTreeNode(((EduBooks) b).getInfo());
+                    parent.add(varNode);
+                }
+            }
+
         }
     }
 

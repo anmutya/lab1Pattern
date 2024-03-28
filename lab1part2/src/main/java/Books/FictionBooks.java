@@ -9,8 +9,16 @@ package Books;
  *
  * @author annamutovkina
  */
-public abstract class FictionBooks extends Books{
+public abstract class FictionBooks {
     private String genre;
+    protected Language language;
+    protected String name;
+    protected Language getLanguage(){
+        return language;
+    }
+    public String getName(){
+        return this.name;
+    }
     public FictionBooks(String name, String genre, Language language){
         this.name = name;
         this.genre = genre;
@@ -19,7 +27,6 @@ public abstract class FictionBooks extends Books{
    public String getGenre(){
        return this.genre;
    }
-   @Override
     public String getInfo(){
         return this.name + " " + this.genre;
     }
