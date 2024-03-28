@@ -9,12 +9,12 @@ package BuilderAndDirector;
  * @author annamutovkina
  */
 public class FictionBookDirector {
-    private FictionBookBuilderFix builder;
-    public FictionBookDirector(FictionBookBuilderFix builder){
+    private FictionBookBuilder builder;
+    public FictionBookDirector(FictionBookBuilder builder){
         this.builder = builder;
     }
 
-    public FictionBookBuilderFix getBuilder(){
+    public FictionBookBuilder getBuilder(){
         return this.builder;
     }
     public void constructArtisticBook() {

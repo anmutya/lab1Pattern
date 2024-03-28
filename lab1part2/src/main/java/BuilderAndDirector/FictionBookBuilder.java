@@ -13,13 +13,13 @@ import Books.Language;
  *
  * @author annamutovkina
  */
-public abstract class FictionBookBuilderFix {
+public abstract class FictionBookBuilder {
     protected String name;
     protected String genre;
     protected Language language;
     protected BooksGenerate gen = new BooksGenerate();
     
-    public FictionBookBuilderFix(){
+    public FictionBookBuilder(){
         this.language = language;
     }
     public void buildName() {

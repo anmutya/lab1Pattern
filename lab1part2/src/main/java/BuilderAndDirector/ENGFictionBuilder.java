@@ -9,7 +9,7 @@ import Books.Language;
  *
  * @author annamutovkina
  */
-public class ENGFictionBuilder extends FictionBookBuilderFix {
+public class ENGFictionBuilder extends FictionBookBuilder {
     public ENGFictionBuilder() {
         this.language = Language.ENGLISH;
     }
